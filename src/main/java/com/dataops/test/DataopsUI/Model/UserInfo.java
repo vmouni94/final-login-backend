@@ -56,6 +56,14 @@ public class UserInfo {
         this.email = email;
     }
 
+    public String getRole() { return role;    }
+
+    public void setRole(String role) { this.role = role;    }
+
+    public String getCountry() { return country;    }
+
+    public void setCountry(String country) { this.country = country;    }
+
     public String getUsername() {
         return username;
     }
@@ -72,21 +80,7 @@ public class UserInfo {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
 
     @Override
     public String toString() {

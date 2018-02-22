@@ -12,25 +12,25 @@ public class UserService {
     @Autowired
     private UserRepo repo;
 
-    public boolean registerValidation(UserInfo user) {
+    public String registerValidation(UserInfo user) {
 
         try {
             UserInfo userExist = repo.findByUsername(user.getUsername());
             if(userExist!=null) {
                 System.out.println("user already Exist");
                 //return "user already Exists, sign up using different Credentials";
-                return false;
+                return null;
             }
             else {
                 //System.out.println("Starting to save user");
                 repo.save(user);
                 System.out.println(user);
                 System.out.println("registration successful");
-                return true;/* "Registration Successful, Login to continue.. "; */
+                return "Registration Successful, Login to continue.. ";
             }
         }catch(Exception e) {
             System.out.println(e.getMessage());
-            return false;
+            return null;
         }
 
     }
