@@ -10,32 +10,32 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     @Autowired
-    private static UserRepo repo;
+    private UserRepo repo;
 
-    public static String registerValidation(UserInfo user) {
+    public boolean registerValidation(UserInfo user) {
 
         try {
             UserInfo userExist = repo.findByUsername(user.getUsername());
             if(userExist!=null) {
                 System.out.println("user already Exist");
                 //return "user already Exists, sign up using different Credentials";
-                return null;
+                return false;
             }
             else {
-
+                //System.out.println("Starting to save user");
                 repo.save(user);
                 System.out.println(user);
                 System.out.println("registration successful");
-                return "Registration Successful, Login to continue.. ";
+                return true;/* "Registration Successful, Login to continue.. "; */
             }
         }catch(Exception e) {
             System.out.println(e.getMessage());
-            return null;
+            return false;
         }
 
     }
 
-    public static UserInfo loginValidation(UserInfo user) {
+    public UserInfo loginValidation(UserInfo user) {
 
         try {
             UserInfo userValid = repo.findByUsername(user.getUsername());

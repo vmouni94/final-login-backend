@@ -15,6 +15,8 @@ public class UserInfo {
 
     private String fullname;
     private String email;
+    private String role;
+    private String country;
     private String username;
     private String password;
 
@@ -68,5 +70,26 @@ public class UserInfo {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo [username=" + username + ", email=" + email +", role=" + role+", country="+country+", password=" + password + "]";
     }
 }
